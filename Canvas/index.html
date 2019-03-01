@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <title>BeCode/JavaScript - Canvas: Ismail Joseph</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
+        <link rel="stylesheet" href="../../_shared/css/normalize.css" />
+        <link rel="stylesheet" href="../../_shared/css/styles.css" />
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>BeCode / JavaScript</h1>
+            </header>
+            <div class="content">
+                <h2>A flag</h2>
+                <canvas id="flag" width="350" height="100">
+                    Votre navigateur ne supporte pas Canvas.
+                </canvas>
+                <h2>A boat</h2>
+                <canvas id="boat" width="350" height="200">
+                    Votre navigateur ne supporte pas Canvas.
+                </canvas>
+                <h2>A house</h2>
+                <canvas id="house" width="350" height="200">
+                    Votre navigateur ne supporte pas Canvas.
+                </canvas>
+                <h2>A bonhomme</h2>
+                <canvas style="float:left;" id="bonhomme" width="350" height="200">
+                    Votre navigateur ne supporte pas Canvas.
+                </canvas>
+                <div class="actions">
+                    <button type="button" id="hello">Say Hello to the Alien!</button>
+                </div>
+            </div>
+        </div>
+
+<script type="text/javascript">
+    //drawing of a flag
+    var c = document.getElementById("flag");
+    var ctx=c.getContext("2d");
+    var ctx=c.getContext("2d");
+    var ctx=c.getContext("2d");
+    ctx.fillStyle="black";
+    ctx.fillRect(0, 0, 50, 70);
+    ctx.fillStyle="yellow";
+    ctx.fillRect(50, 0, 50, 70);
+    ctx.fillStyle="red";
+    ctx.fillRect(100, 0, 50, 70);
+    //drawing of a boat
+    var c = document.getElementById("boat");
+    var ctx=c.getContext("2d");
+    ctx.fillStyle="#90C0FF";
+    ctx.fillRect(0,0,350, 200);
+    ctx.fillStyle="black";
+    ctx.beginPath();
+    ctx.moveTo(50,100);
+    ctx.lineTo(250, 100);
+    ctx.lineTo(225, 160);
+    ctx.lineTo(75, 160);
+    ctx.lineTo(50, 100);
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle="white";
+    ctx.fillRect(90, 50, 25, 50);
+    ctx.fillStyle="red";
+    ctx.fillRect(90,25,25,25);
+
+    ctx.fillStyle="white";
+    ctx.fillRect(140, 60, 25, 40);
+    ctx.fillStyle="red";
+    ctx.fillRect(140,40,25,20);
+
+    ctx.fillStyle="white";
+    ctx.fillRect(190, 70, 25, 30);
+    ctx.fillStyle="red";
+    ctx.fillRect(190,55,25,15);
+
+    ctx.font="15px Helvetica";
+    ctx.fillStyle="white";
+    ctx.fillText("TITANIC", 170, 125);
+
+    //drawing of a house
+    var c = document.getElementById("house");
+    var ctx=c.getContext("2d");
+    ctx.fillStyle="#90E352";
+    ctx.fillRect(0,0,350,200);
+    //body
+    ctx.fillStyle="#E3525B";
+    ctx.fillRect(100, 90, 105, 110);
+    //door
+    ctx.fillStyle="#5259E3";
+    ctx.fillRect(120, 150, 30, 50);
+    //poignée
+    ctx.beginPath();
+    ctx.arc(125, 175, 2,0, Math.PI*2);
+    ctx.fillStyle="#BDE14F";
+    ctx.fill();
+    ctx.closePath();
+    //toit
+    ctx.beginPath();
+    ctx.moveTo(95, 90);
+    ctx.lineTo(210, 90);
+    ctx.lineTo(152.5,55);
+    ctx.lineTo(95,90);
+    ctx.fillStyle="#B04FE1";
+    ctx.fill();
+    ctx.closePath();
+    //Cheminée
+    ctx.beginPath();
+    ctx.moveTo(200, 85);
+    ctx.lineTo(200, 60);
+    ctx.lineTo(190,60);
+    ctx.lineTo(190,79);
+    ctx.fillStyle="#F50091";
+    ctx.fill();
+    ctx.closePath(); 
+
+    //Window cadre blanc
+    ctx.fillStyle="white";
+    ctx.fillRect(157.5, 107.5, 30, 30);
+    //window vitre
+    ctx.fillStyle="#74B7FA";
+    ctx.fillRect(160, 110, 25, 25);
+    //lingne verticale fenetre
+    ctx.fillStyle="white";
+    ctx.fillRect(172, 107.5, 2,30);
+    //ligne horizontale fenetre
+    ctx.fillStyle="white";
+    ctx.fillRect(157.5,122, 30,2);
+
+    //Draw a bonhomme
+    var c = document.getElementById("bonhomme");
+    var ctx=c.getContext("2d");
+    ctx.fillStyle="#D9E173";
+    ctx.fillRect(0,0,350, 200);
+
+    //action for the HELLO BUTTON
+    document.getElementById("hello").addEventListener("click", function(){
+        ctx.beginPath();
+        ctx.moveTo(x0+60,y0+40);
+        ctx.bezierCurveTo(x0+45, y0+45, x0+45, y0+5, x0+60, y0+10);
+        ctx.lineTo(x0+60+95,y0+10);
+        ctx.bezierCurveTo((2*(x0+60)+95-(x0+45)), y0+5,(2*(x0+60)+95-(x0+45)), y0+45, x0+60+95,y0+40);
+        ctx.lineTo(x0+80,y0+40);
+        ctx.quadraticCurveTo(x0+75, y0+40+15, x0+55, y0+40+15);
+        ctx.quadraticCurveTo(x0+65, y0+40+15, x0+70,y0+40);
+        ctx.closePath();
+        ctx.stroke();
+
+        ctx.font="12px Helvetica";
+        ctx.fillStyle="#519D46";
+        var i=0;
+        var text="Hello Human";
+        var text_letters=text.split("");
+        var timeout_print=setTimeout(print_letter, random_time_interval());
+        
+        function print_letter(){
+            ctx.fillText(text_letters[i], x0+61+(i*9), y0+28);
+            i++;
+            timeout_print=setTimeout(print_letter, random_time_interval());
+            if(i==text_letters.length){
+            clearTimeout(timeout_print);
+            }
+        }
+        function random_time_interval(){
+        return Math.floor((Math.random()*500));
+        }
+
+        var timeout=setTimeout("location.reload()", 8 * 1000);
+    })
+    //THIS IS TO MOVE THE ALIEN
+    var xmove=0;
+    var ymove=0;
+
+    //HEAD PART
+    var x0=100+xmove;
+    var y0=15+ymove;
+     var x=x0;
+    var y=100+ymove;
+    var cpx1=20+xmove;
+    var cpy1=10+ymove;
+    var cpx2=80+xmove;
+    var cpy2=y;
+   
+    ctx.fillStyle="#519D46";
+    ctx.beginPath();
+    ctx.moveTo(x0, y0);
+    ctx.bezierCurveTo(cpx1, cpy1, cpx2, cpy2, x, y);
+    ctx.bezierCurveTo((2*x)-cpx2, cpy2, (2*x0)-cpx1, cpy1, x0, y0);
+    ctx.fill();
+    //mouth
+    ctx.fillStyle="black";
+    ctx.fillRect(x0-5, y0+65, (2*5), 1);
+    //left eye
+    ctx.beginPath();
+    ctx.moveTo(x0-25, y0+15);
+    ctx.bezierCurveTo(x0-25, y0+35, x0-15, y0+45, x0-5, y0+45);
+    ctx.bezierCurveTo(x0-5, y0+30, x0-15, y0+15, x0-25,y0+15)
+    ctx.fill();
+    //right eye
+    ctx.beginPath();
+    ctx.moveTo((2*x0)-(x0-25), y0+15);
+    ctx.bezierCurveTo((2*x0)-(x0-25), y0+35, (2*x0)-(x0-15), y0+45, (2*x0)-(x0-5), y0+45);
+    ctx.bezierCurveTo((2*x0)-(x0-5), y0+30, (2*x0)-(x0-15), y0+15, (2*x0)-(x0-25),y0+15);
+    ctx.fill();
+    //BODY PART
+    ctx.beginPath();
+    ctx.fillStyle="#519D46";
+    //torse
+    ctx.fillRect(x0-2.5, y-1, 5, 50);
+    //belly
+    ctx.arc(x0, y+33, 12.5, Math.PI*2, false);
+    ctx.fill();
+    //nombril
+    ctx.fillStyle="black";
+    ctx.beginPath();
+    ctx.arc(x0, y+37, 1.5, Math.PI*2, false);
+    ctx.fill();
+    //legs
+    ctx.fillStyle="#519D46";
+    ctx.strokeStyle="#519D46";
+    ctx.lineWidth=3;
+    ctx.beginPath();
+    ctx.moveTo(x0-1, y+49);
+    ctx.lineTo(x0-1.5-15, y+49+50);
+    ctx.moveTo(x0+1, y+49);
+    ctx.lineTo(x0+1.5+15, y+49+50)
+    ctx.closePath();
+    ctx.stroke();
+    //arms
+    ctx.beginPath();
+    ctx.moveTo(x0-1, y+5);
+    ctx.lineTo(x0-1.5-25, y+15+30);
+    ctx.moveTo(x0+1, y+5);
+    ctx.lineTo(x0+1.5+25, y+15+30)
+    ctx.closePath();
+    ctx.stroke();
+
+   
+
+</script>
+    </body>
+</html>
