@@ -1,6 +1,7 @@
 # La Prairie : JavaScript
 
-**Ceci est une version solutionnée du** [**repo originale contenant les énoncés**](https://github.com/becodeorg/BXL-Johnson-3.9/tree/master/03-javascript). 
+**Ceci est une version solutionnée du** [**repo originale contenant les énoncés**](https://github.com/becodeorg/BXL-Johnson-3.9/tree/master/03-javascript).
+
 J'ai personnellement beaucoup utilisé les tutos de ce site [Sabe - Javascript](https://sabe.io/classes/javascript). ça m'a bien aidé à comprendre les concepts de base.
 
 ## Structure
